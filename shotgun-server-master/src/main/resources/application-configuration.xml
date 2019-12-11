@@ -32,7 +32,7 @@
 		<property name="driverClassName"
 			value="org.h2.Driver" />
 		<property name="url"
-			value="jdbc:h2:file:D://Users//ppicard//db//test_database" />
+			value="jdbc:h2:file:/home/lvalls/Documents/M2/ASIDE/Java/Shotgun/db_database" />
 		<property name="username" value="sa" />
 		<property name="password" value="password" />
 	</bean>

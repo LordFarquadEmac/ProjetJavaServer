@@ -57,7 +57,7 @@ INSERT INTO PartieCommune(id, name, localisation_id) VALUES (18, 'Carré 51', 5)
 INSERT INTO PartieCommune(id, name, localisation_id) VALUES (19, 'Carré 52', 5);
 INSERT INTO PartieCommune(id, name, localisation_id) VALUES (20, 'Carré 53', 5);
 INSERT INTO PartieCommune(id, name, localisation_id) VALUES (21, 'Salle TV Gambet 1', 6);
-INSERT INTO PartieCommune(id, name, localisation_id) VALUES (21, 'Carré du 80', 7);
-INSERT INTO PartieCommune(id, name, localisation_id) VALUES (22, 'Carré du 81', 7);
-INSERT INTO PartieCommune(id, name, localisation_id) VALUES (21, 'Salle TV Gambet 2', 7);
-INSERT INTO PartieCommune(id, name, localisation_id) VALUES (21, 'Barbecue', 7);
+INSERT INTO PartieCommune(id, name, localisation_id) VALUES (22, 'Carré du 80', 7);
+INSERT INTO PartieCommune(id, name, localisation_id) VALUES (23, 'Carré du 81', 7);
+INSERT INTO PartieCommune(id, name, localisation_id) VALUES (24, 'Salle TV Gambet 2', 7);
+INSERT INTO PartieCommune(id, name, localisation_id) VALUES (25, 'Barbecue', 7);
