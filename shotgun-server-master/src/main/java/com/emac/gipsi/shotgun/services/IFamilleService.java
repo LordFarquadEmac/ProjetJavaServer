@@ -1,5 +1,6 @@
 package com.emac.gipsi.shotgun.services;
 
+import java.util.Date;
 import java.util.List;
 
 import com.emac.gipsi.shotgun.dto.FamilleDto;
@@ -11,4 +12,6 @@ public interface IFamilleService {
 	public FamilleShotgunDto getFamille(int id);
 	
 	public List<FamilleDto> getFamillesWithShotguns();
+	
+	public List<FamilleShotgunDto> getFamilleByDate(Date date);
 }

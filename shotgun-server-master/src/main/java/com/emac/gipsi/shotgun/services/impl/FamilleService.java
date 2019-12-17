@@ -2,6 +2,7 @@ package com.emac.gipsi.shotgun.services.impl;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import com.emac.gipsi.shotgun.dto.FamilleDto;
 import com.emac.gipsi.shotgun.dto.FamilleShotgunDto;
+import com.emac.gipsi.shotgun.dto.ShotgunDto;
 import com.emac.gipsi.shotgun.model.Famille;
 import com.emac.gipsi.shotgun.repositories.FamilleRepository;
 import com.emac.gipsi.shotgun.services.IFamilleService;
@@ -46,7 +48,6 @@ public class FamilleService implements IFamilleService {
 			modelMapper.map(famille.get(), result);
 			return result;
 		}
-
 		return null;
 	}
 
@@ -55,5 +56,25 @@ public class FamilleService implements IFamilleService {
 		Type listType = new TypeToken<List<FamilleDto>>() {}.getType();
 		List<FamilleDto> result = modelMapper.map(familleRepository.findAll(), listType);
 		return result;
+	}
+	
+	@Override
+	public List<FamilleShotgunDto> getFamilleByDate(Date date) {
+		List<FamilleDto> familles = this.getFamillesWithShotguns();
+		List<FamilleShotgunDto> famillesSansShotgun = this.getFamilles();
+		
+		for (int i=0; i<familles.size(); i++) {
+			List <ShotgunDto> ListShotgunParFamille = familles.get(i).getListeShotguns();
+			for (int j=0; j<ListShotgunParFamille.size(); j++) {
+				Date dateShotgun = ListShotgunParFamille.get(j).getShotgunDate();
+				if (dateShotgun.compareTo(date) == 0) {
+					//FamilleShotgunDto familleToDelete = this.getFamille(familles.get(i).getId());
+					//famillesSansShotgun.remove(familleToDelete);
+					int idFamilleASupprimer = familles.get(i).getId();
+					famillesSansShotgun.removeIf(famille -> famille.getId() == idFamilleASupprimer);
+				}
+			}
+		}
+		return famillesSansShotgun;		
 	}
 }

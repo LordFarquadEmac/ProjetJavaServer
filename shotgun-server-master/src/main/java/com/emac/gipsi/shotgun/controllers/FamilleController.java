@@ -1,5 +1,6 @@
 package com.emac.gipsi.shotgun.controllers;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,5 +35,10 @@ public class FamilleController {
 	@RequestMapping(path ="/shotguns", method = RequestMethod.GET)
 	public List<FamilleDto> getFamiliesWithShotguns() {
 		return familleService.getFamillesWithShotguns();
+	}
+	
+	@RequestMapping(path ="/familleDispo/{date}", method = RequestMethod.GET)
+	public List<FamilleShotgunDto> getFamilleByDate(@PathVariable("date") Date date) {
+		return familleService.getFamilleByDate(date);
 	}
 }
